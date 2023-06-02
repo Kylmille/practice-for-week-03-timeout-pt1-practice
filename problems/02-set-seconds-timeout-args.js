@@ -21,9 +21,12 @@ setSecondsTimeoutArgs(function(arg1, arg2) {
     console.log(arg1 + '-' + arg2);
 }, 0.7, 'hello', 'world'); // should print 'hello-world' after 700ms
 ***********************************************************************/
-
 function setSecondsTimeoutArgs(cb, delayInSeconds, ...args) {
-  // Your code here
+  // Convert delay to milliseconds
+  const delayInMilliseconds = delayInSeconds * 1000;
+
+  // Set the timeout using the converted delay and pass additional arguments to the callback
+  setTimeout(cb, delayInMilliseconds, ...args);
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/

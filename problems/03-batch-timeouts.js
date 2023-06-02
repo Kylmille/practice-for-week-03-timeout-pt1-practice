@@ -5,10 +5,10 @@ callback in the array with its corresponding delay. For example, the
 callback at index 0 should be set with the delay at index 0,
 the callback at index 1 should be set with the delay at index 1, and so on.
 The `batchTimeouts` function should return an array containing the Timeout
-objects for each timeout that was set. You may assume that both array arguments 
+objects for each timeout that was set. You may assume that both array arguments
 have the same length.
 
-In addition to Mocha, we recommend that you test your code manually using 
+In addition to Mocha, we recommend that you test your code manually using
 node with the examples below to confirm the correct behavior.
 
 Note: The test specs for this problem are valid for iterative solutions. If you
@@ -23,18 +23,38 @@ const shout = () => console.log('WHAT?');
 const tasks = [sayHello, sayGoodbye, shout];
 const delays = [500, 200, 900];
 
-const timeoutObjs = batchTimeouts(tasks, delays); 
-// should print: 
+const timeoutObjs = batchTimeouts(tasks, delays);
+// should print:
 //  'bye' after 200 ms
 //  'hi' after 500 ms
 //  'WHAT?' after 900 ms
 
 console.log(timeoutObjs); // [ Timeout {...},  Timeout {...}, Timeout {...} ]
 ***********************************************************************/
-
 function batchTimeouts(callbacks, delays) {
-  // Your code here
+  //Create an empty array called timeoutObjs to store the Timeout objects
+
+  const timeoutObjs = [];
+  //Iterate over the callbacks array using a for loop:
+  for (let i = 0; i < callbacks.length; i++) {
+    // Retrieve the callback at the current index using callbacks[i]
+    const callback = callbacks[i];
+    // Retrieve the delay at the current index using delays[i]
+    const delay = delays[i];
+
+    //set a timeout for the current callback with the corresponding delay:
+    const timeoutObj = setTimeout(callback, delay);
+    // Use setTimeout(callback, delay) and store the returned Timeout object in a variable called timeoutObj
+
+    timeoutObjs.push(timeoutObj);
+    // Push the timeoutObj into the timeoutObjs array
+  }
+
+  return timeoutObjs;
+// Return the timeoutObjs array containing the Timeout objects for each timeout that was set
+
 }
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
