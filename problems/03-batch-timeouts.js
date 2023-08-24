@@ -56,6 +56,57 @@ function batchTimeouts(callbacks, delays) {
 }
 
 
+/*
+function batchTimeouts(callbacks, delays) {
+  This line defines a new function named batchTimeouts that takes 
+  two parameters: an array of callback functions (callbacks) and
+  an array of corresponding delays in milliseconds (delays).
+  The purpose of this function is to create and manage multiple timeouts
+  based on the provided callbacks and delays.
+
+
+//const timeoutObjs = [];
+  An empty array named timeoutObjs is declared using the const keyword.
+  This array will be used to store the Timeout objects returned by 
+  the setTimeout function for each callback.
+
+
+//for (let i = 0; i < callbacks.length; i++) {
+    This line begins a for loop that iterates over the callbacks array. 
+    The loop will run as long as the index i is less than the length of
+    the callbacks array.
+
+//const callback = callbacks[i];
+//const delay = delays[i];
+    Inside the loop, two variables callback and delay are declared and 
+    assigned values. The callback variable is assigned the callback 
+    function at the current index i of the callbacks array, and the 
+    delay variable is assigned the delay value at the current index i of the
+    delays array.
+
+
+//const timeoutObj = setTimeout(callback, delay);
+    This line uses the setTimeout function to set a timeout for the 
+    current   callback with the corresponding delay. 
+    The setTimeout function schedules the execution of the provided
+    callback after the specified delay in milliseconds.
+    The returned Timeout object is stored in the timeoutObj variable.
+
+
+//timeoutObjs.push(timeoutObj);
+    This line adds the timeoutObj 
+    (the Timeout object returned by setTimeout)
+    to the timeoutObjs array using the push method.
+    This array will eventually contain Timeout objects for
+    each timeout that was set.
+
+  }
+
+  return timeoutObjs;
+}
+    //After the loop completes, the function returns the timeoutObjs array
+      containing the Timeout objects for each timeout that was set using
+      the provided callbacks and delays.
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
   module.exports = batchTimeouts;
