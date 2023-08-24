@@ -44,7 +44,8 @@ function batchTimeouts(callbacks, delays) {
 
     //set a timeout for the current callback with the corresponding delay:
     const timeoutObj = setTimeout(callback, delay);
-    // Use setTimeout(callback, delay) and store the returned Timeout object in a variable called timeoutObj
+    // Use setTimeout(callback, delay) and store the returned Timeout object in
+    // a variable called timeoutObj
 
     timeoutObjs.push(timeoutObj);
     // Push the timeoutObj into the timeoutObjs array
